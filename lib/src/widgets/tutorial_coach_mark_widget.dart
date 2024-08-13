@@ -1,12 +1,12 @@
-import 'dart:async';
 import 'dart:ui';
-
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:tutorial_coach_mark/src/target/target_content.dart';
-import 'package:tutorial_coach_mark/src/target/target_focus.dart';
-import 'package:tutorial_coach_mark/src/target/target_position.dart';
 import 'package:tutorial_coach_mark/src/util.dart';
+import 'package:tutorial_coach_mark/src/target/target_focus.dart';
+import 'package:tutorial_coach_mark/src/target/target_content.dart';
+import 'package:tutorial_coach_mark/src/target/target_position.dart';
 import 'package:tutorial_coach_mark/src/widgets/animated_focus_light.dart';
+
 
 class TutorialCoachMarkWidget extends StatefulWidget {
   const TutorialCoachMarkWidget({
@@ -225,10 +225,21 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
         right: right,
         child: SizedBox(
           width: weight,
-          child: Padding(
-            padding: i.padding,
-            child: i.builder?.call(context, this) ??
-                (i.child ?? const SizedBox.shrink()),
+          child: Column(
+            children: [
+              Padding(
+                padding: i.padding,
+                child: i.builder?.call(context, this) ??
+                    (i.child ?? const SizedBox.shrink()),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: MaterialButton(onPressed: (){
+                  next();
+                },color: Theme.of(context).primaryColor, child: const  Text("Next", style: TextStyle(color: Colors.white) ),),
+              )
+            ],
           ),
         ),
       );
