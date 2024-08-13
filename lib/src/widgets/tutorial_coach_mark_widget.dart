@@ -238,7 +238,9 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
                 child: MaterialButton(onPressed: (){
                   next();
                 },color: Theme.of(context).primaryColor, child: const  Text("Next", style: TextStyle(color: Colors.white) ),),
-              )
+              ),
+
+             const  SizedBox(height: 20)
             ],
           ),
         ),
