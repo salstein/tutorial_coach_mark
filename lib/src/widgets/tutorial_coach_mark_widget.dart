@@ -234,7 +234,7 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
               ),
 
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(bottom: 50),
                 child: MaterialButton(onPressed: (){
                   next();
                 },color: Theme.of(context).primaryColor, child: const  Text("Next", style: TextStyle(color: Colors.white) ),),
