@@ -1,12 +1,11 @@
-library tutorial_coach_mark;
-
-import 'dart:async';
 import 'dart:ui';
-
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:tutorial_coach_mark/src/target/target_focus.dart';
 import 'package:tutorial_coach_mark/src/util.dart';
+import 'package:tutorial_coach_mark/src/target/target_focus.dart';
 import 'package:tutorial_coach_mark/src/widgets/tutorial_coach_mark_widget.dart';
+
+
 
 export 'package:tutorial_coach_mark/src/target/target_content.dart';
 export 'package:tutorial_coach_mark/src/target/target_focus.dart';
@@ -36,10 +35,10 @@ class TutorialCoachMark {
   final Widget? skipWidget;
   final bool showSkipInLastTarget;
   final ImageFilter? imageFilter;
-
+final Color? nextButtonColor;
   OverlayEntry? _overlayEntry;
 
-  TutorialCoachMark({
+  TutorialCoachMark( {
     required this.targets,
     this.colorShadow = Colors.black,
     this.onClickTarget,
@@ -60,6 +59,7 @@ class TutorialCoachMark {
     this.skipWidget,
     this.showSkipInLastTarget = true,
     this.imageFilter,
+    this.nextButtonColor
   }) : assert(opacityShadow >= 0 && opacityShadow <= 1);
 
   OverlayEntry _buildOverlay({bool rootOverlay = false}) {
@@ -88,6 +88,7 @@ class TutorialCoachMark {
           rootOverlay: rootOverlay,
           showSkipInLastTarget: showSkipInLastTarget,
           imageFilter: imageFilter,
+        nextButtonColor: nextButtonColor,
         );
       },
     );

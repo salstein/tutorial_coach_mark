@@ -32,7 +32,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
     this.skipWidget,
     this.rootOverlay = false,
     this.showSkipInLastTarget = false,
-    this.imageFilter,
+    this.imageFilter, this.nextButtonColor,
   })  : assert(targets.length > 0),
         super(key: key);
 
@@ -59,6 +59,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
   final bool rootOverlay;
   final bool showSkipInLastTarget;
   final ImageFilter? imageFilter;
+  final Color? nextButtonColor;
 
   @override
   TutorialCoachMarkWidgetState createState() => TutorialCoachMarkWidgetState();
@@ -234,10 +235,17 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
               ),
 
               Padding(
-                padding: const EdgeInsets.only(bottom: 50),
-                child: MaterialButton(onPressed: (){
+                padding: const EdgeInsets.only(left: 100 ,bottom: 50),
+                child: MaterialButton(
+                  onPressed: (){
                   next();
-                },color: Theme.of(context).primaryColor, child: const  Text("Next", style: TextStyle(color: Colors.white) ),),
+                },
+
+                 shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+                
+                color:widget.nextButtonColor?? Theme.of(context).primaryColor, child:   Text( (widget.targets.indexOf(currentTarget!) == widget.targets.length - 1)?"Done" :"Next", style: TextStyle(color: Colors.white) ),),
               ),
 
              const  SizedBox(height: 20)
