@@ -188,7 +188,7 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
             left = 0;
             top = null;
             bottom = haloHeight +
-                (MediaQuery.of(context).size.height - positioned.dy);
+                (MediaQuery.of(context).size.height - positioned.dy)+ 20;
           }
           break;
         case ContentAlign.left:
